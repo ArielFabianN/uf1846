@@ -1,7 +1,7 @@
 {
-    async function getCountryDetails() {
-
-        const response = await fetch(`https://restcountries.eu/rest/v2/name/`);
+    async function getCountryDetails(countryName) {
+        console.log("found country: ", countryName);
+        const response = await fetch(`https://restcountries.eu/rest/v2/name/${countryName}`);
 
         const data = await response.json();
 
@@ -36,11 +36,11 @@
     async function setCountryFlag(event) {
         let countryName = event.value;
 
-        let countryData = await getCountryDetails(countryName);
+        //let countryData = await getCountryDetails(countryName);
         // Descomenta la següent línia si no has aconseguit implementar la primera part de l'exercici. Comenta la línia anterior també.   
-        //let countryData = await getCountryDetailsFake(countryName);
+        let countryData = await getCountryDetailsFake(countryName);
 
-        document.querySelector('#imatgeSeleccionada').src = countryData[0].flag;
+        // document.querySelector('#imatgeSeleccionada').src = countryData[0].flag;
         document.querySelector('#population').value = countryData[0].population;
         document.querySelector('#urlFlag').value = countryData[0].flag;
     }
@@ -57,7 +57,7 @@
 
 
     // Descomentar para probar el Ejercicio 6
-    // console.log("Información sobre España:", getCountryDetails('spain'));
+    console.log("Información sobre España:", getCountryDetails('spain'));
 
     document.querySelector('.w3-select').onchange = setCountryFlag;
 

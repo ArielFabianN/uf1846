@@ -1,6 +1,11 @@
 
 body {
     font-family: 'Playfair Display', serif;
+    background-color: #70F0EE;
+}
+
+header{
+    color:#854242;
 }
 
 h1, h2, h3, h4, h5, h6{
