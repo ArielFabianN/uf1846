@@ -18,7 +18,7 @@ connection.connect();
 /**
  * APARTAT 1 - Canvia la query1
  */
-const query1 = "select * from products";
+const query1 = "SELECT * FROM products WHERE category='Dried Fruit & Nuts' AND minimum_reorder_quantity <= 10";
 
 connection.query(query1, function(error, results) {
     if (error) {
